@@ -34,13 +34,20 @@
 } 
 
 .tasks-table {
-  width: 80%;
+  min-width: 80%;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: #212020;
   display: grid;
   grid-template-rows: 1fr;
   .row {
+    padding: 10px 30px;
+    padding-bottom: -10px;
     display: grid;
     min-height: 50px;
     grid-template-columns: 1fr 2fr 1fr 1fr;
+    border-bottom: .05em solid white;
+
 
     .column-btns {
       display: flex;

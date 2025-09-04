@@ -15,8 +15,16 @@ function App() {
     } 
   }
 
-  const finish = () => {
-  
+  const remove = (index) => {
+    let newTodos = [...tasks]
+    newTodos.splice(index, 1)
+    setTasks(newTodos)
+  }
+
+  const finish = (index) => {
+    let newTasks = [...tasks]
+    newTasks[index].stat = "Done"
+    setTasks(newTasks)
   }
 
 
@@ -37,15 +45,15 @@ function App() {
           <div className="column">Actions</div>
         </div>
         {         
-          tasks.map((element) => {
+          tasks.map((element, index) => {
             return (
               <div className="row">
                 <div className="column">{element.id}</div>
                 <div className="column">{element.name}</div>
                 <div className="column">{element.stat}</div>
                 <div className="column-btns">
-                  <button>Delete</button>
-                  <button onClick={finish}>Finished</button>
+                  <button style={{backgroundColor: "red", borderColor: "red", borderRadius: "5px", cursor: "pointer"}} onClick={() => remove(index)}>Delete</button>
+                  <button style={{backgroundColor: "green", borderColor: "green", borderRadius: "5px", cursor: "pointer"}} onClick={() => finish(index)}>Finished</button>
                 </div>
               </div>
             )
